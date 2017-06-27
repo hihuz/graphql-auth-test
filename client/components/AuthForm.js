@@ -38,7 +38,7 @@ class AuthForm extends React.Component {
           </div>
           <div className="input-field">
             <input
-              placeholder="Email"
+              placeholder="Password"
               type="password"
               name="password"
               value={this.state.password}
