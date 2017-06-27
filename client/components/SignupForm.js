@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "react-apollo";
 import AuthForm from "./AuthForm";
-import login from "../mutations/login";
+import signup from "../mutations/signup";
 import currentUser from "../queries/currentUser";
 
-class LoginForm extends React.Component {
+class SignupForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,10 +12,10 @@ class LoginForm extends React.Component {
       errors: []
     };
 
-    this.login = this.login.bind(this);
+    this.signup = this.signup.bind(this);
   }
 
-  login({ email, password }) {
+  signup({ email, password }) {
     this.props
       .mutate({
         variables: {
@@ -33,11 +33,11 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="container">
-        <h3>Login</h3>
-        <AuthForm handleSubmit={this.login} errors={this.state.errors} />
+        <h3>Sign Up</h3>
+        <AuthForm handleSubmit={this.signup} errors={this.state.errors} />
       </div>
     );
   }
 }
 
-export default graphql(login)(LoginForm);
+export default graphql(signup)(SignupForm);

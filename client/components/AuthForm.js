@@ -16,7 +16,7 @@ class AuthForm extends React.Component {
   submitForm(e) {
     e.preventDefault();
     const { email, password } = this.state;
-    this.props.login({ email, password });
+    this.props.handleSubmit({ email, password });
   }
 
   updateInput(e) {
