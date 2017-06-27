@@ -29,12 +29,21 @@ class AuthForm extends React.Component {
       <div className="row">
         <form className="col s4">
           <div className="input-field">
-            <label>Email:</label>
-            <input name="email" value={this.state.email} onChange={this.updateInput} />
+            <input
+              placeholder="Email"
+              name="email"
+              value={this.state.email}
+              onChange={this.updateInput}
+            />
           </div>
           <div className="input-field">
-            <label>Password:</label>
-            <input name="password" value={this.state.password} onChange={this.updateInput} />
+            <input
+              placeholder="Email"
+              type="password"
+              name="password"
+              value={this.state.password}
+              onChange={this.updateInput}
+            />
           </div>
           <button className="btn" onClick={this.submitForm}>Submit</button>
         </form>
