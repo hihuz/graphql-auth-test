@@ -45,6 +45,9 @@ class AuthForm extends React.Component {
               onChange={this.updateInput}
             />
           </div>
+          <ul className="errors">
+            {this.props.errors.map(err => <li key={err}>{err}</li>)}
+          </ul>
           <button className="btn" onClick={this.submitForm}>Submit</button>
         </form>
       </div>

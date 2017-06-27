@@ -8,24 +8,33 @@ class LoginForm extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      errors: []
+    };
+
     this.login = this.login.bind(this);
   }
 
   login({ email, password }) {
-    this.props.mutate({
-      variables: {
-        email,
-        password
-      },
-      refetchQueries: [{ query: currentUser }]
-    });
+    this.props
+      .mutate({
+        variables: {
+          email,
+          password
+        },
+        refetchQueries: [{ query: currentUser }]
+      })
+      .catch(res => {
+        const errors = res.graphQLErrors.map(err => err.message);
+        this.setState({ errors });
+      });
   }
 
   render() {
     return (
       <div className="container">
         <h3>Login</h3>
-        <AuthForm login={this.login} />
+        <AuthForm login={this.login} errors={this.state.errors} />
       </div>
     );
   }
